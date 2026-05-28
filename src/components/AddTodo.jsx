@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 function AddTodo(props) {
-    const onAdd = props.AddTask;
-    const [text, SetText] = useState('');
+    const onAdd = props.addTask;
+    const [text, setText] = useState('');
     return (
         <div>
             <input
@@ -10,12 +10,12 @@ function AddTodo(props) {
                 value={text}
                 placeholder="Add Task"
                 id="Task name"
-                onChange={(e) => { SetText(e.target.value) }}></input>
+                onChange={(e) => { setText(e.target.value) }}></input>
             <button
                 onClick={() => {
                     if (text === '') return;
                     else {
-                        onAdd(text); SetText('');
+                        onAdd(text); setText('');
                     }
                 }}>Add</button>
 
