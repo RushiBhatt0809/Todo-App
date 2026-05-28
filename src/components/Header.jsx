@@ -1,8 +1,8 @@
-import "tailwindcss";
 
-function Header(){
-    return(
-        <div className="header">
+
+function Header() {
+    return (
+        <div>
             <h1>Todo App</h1>
         </div>
     );
