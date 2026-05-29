@@ -4,8 +4,7 @@ import { useState } from "react";
 import TodoList from "./components/TodoList";
 
 function App() {
-
-  const [todos, setTodos] = useState([]);
+  const [task, setTask] = useState([]);
 
   function addTask(text) {
     const newTask = {
@@ -13,25 +12,27 @@ function App() {
       text: text,
       status: false
     }
-    setTodos([...todos, newTask]);
+    setTask([...task, newTask]);
   }
 
   function deleteTask(id) {
-    setTodos(todos.filter(todo => todo.id !== id));
+    setTask(task.filter(task => task.id !== id));
   }
 
   function toggleTask(id) {
-    setTodos(todos.map(todo =>
-      todo.id === id ? { ...todo, status: !todo.status } : todo
+    setTask(task.map(task =>
+      task.id === id ? { ...task, status: !task.status } : task
     ));
   }
 
-  console.log(todos);
+
+  console.log(task);
+
   return (
-    <div >
+    <div>
       <Header />
       <AddTodo addTask={addTask} />
-      <TodoList taskList={todos} deleteTask={deleteTask} toggle={toggleTask} />
+      <TodoList task={task} del={deleteTask} toggle={toggleTask} />
     </div>
   );
 }

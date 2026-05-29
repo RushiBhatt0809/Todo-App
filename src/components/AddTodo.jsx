@@ -1,27 +1,20 @@
 import { useState } from "react";
 
-function AddTodo(props) {
-    const onAdd = props.addTask;
+function AddTodo({ addTask }) {
     const [text, setText] = useState('');
+
     return (
         <div>
             <input
-                type="text"
-                value={text}
-                placeholder="Add Task"
                 id="Task name"
-                onChange={(e) => { setText(e.target.value) }}></input>
-            <button
-                onClick={() => {
-                    if (text === '') return;
-                    else {
-                        onAdd(text); setText('');
-                    }
-                }}>Add</button>
-
+                type="text"
+                placeholder="Add Task..."
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+            />
+            <button onClick={() => { addTask(text); setText(''); }}>Add</button>
         </div>
     );
 }
-
 
 export default AddTodo
