@@ -6,6 +6,7 @@ function TodoList(props) {
     const taskList = props.task;
     const del = props.del;
     const toggle = props.toggle;
+    const reset = props.reset;
     const allTask = taskList.map(task => {
         return (
             <label key={task.id}>
@@ -27,6 +28,7 @@ function TodoList(props) {
         <div>
             <h1>Tasks:</h1>
             {allTask}
+            <button onClick={() => reset()}>Reset</button>
         </div>
     );
 }

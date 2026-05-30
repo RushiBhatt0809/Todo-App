@@ -6,6 +6,10 @@ import TodoList from "./components/TodoList";
 function App() {
   const [task, setTask] = useState([]);
 
+  function clearAll() {
+    setTask([]);
+  }
+
   function addTask(text) {
     const newTask = {
       id: Date.now(),
@@ -32,7 +36,7 @@ function App() {
     <div>
       <Header />
       <AddTodo addTask={addTask} />
-      <TodoList task={task} del={deleteTask} toggle={toggleTask} />
+      <TodoList task={task} del={deleteTask} toggle={toggleTask} reset={clearAll} />
     </div>
   );
 }
