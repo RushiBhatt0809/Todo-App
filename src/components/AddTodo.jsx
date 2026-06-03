@@ -1,25 +1,26 @@
 import { useState } from "react";
+import Button from "./Button";
 
 function AddTodo({ addTask }) {
     const [text, setText] = useState('');
 
     return (
-        <div className="">
+        <div className="flex items-center justify-center mb-6">
             <input
-                className=" border-amber-50 border-2 rounded-md mr-25"
+                className="bg-lime-50/70 border-2 rounded-md min-w-[50vw] py-1"
                 id="Task name"
                 type="text"
                 placeholder="Add Task..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             />
-            <button
-                className=" bg-blue-400 px-4 py-1 font-medium text-gray-50 rounded-xl border-2 shadow-md shadow-gray-500"
+            <Button
+                className="shadow-md shadow-gray-500 ml-20"
                 onClick={() => {
                     if (text === '') return;
                     else
                         addTask(text); setText('');
-                }}>Add</button>
+                }}>Add</Button>
         </div>
     );
 }

@@ -34,7 +34,7 @@ function App() {
 
   return (
     <div className="bg-linear-to-b from-green-50 via-green-500 to-green-800 min-h-screen flex items-center justify-center">
-      <div className="bg-linear-to-b from-white/80 to-transparent p-8 max-w-[80vw] rounded-2xl w-full shadow-2xl min-h-[40vw]">
+      <div className="bg-linear-to-b from-white/50 to-blue-500/70 p-8 max-w-[80vw] rounded-2xl w-full shadow-2xl min-h-[40vw]">
         <Header />
         <AddTodo addTask={addTask} />
         <TodoList task={task} del={deleteTask} toggle={toggleTask} reset={clearAll} />

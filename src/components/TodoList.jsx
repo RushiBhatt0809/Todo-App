@@ -25,10 +25,14 @@ function TodoList(props) {
     })
 
     return (
-        <div>
-            <h1>Tasks:</h1>
-            {allTask}
-            <button onClick={() => reset()}>Reset</button>
+        <div className="flex justify-center items-center">
+            <div>
+                <h1>Tasks:</h1>
+                {allTask}
+                <button
+                    className=""
+                    onClick={() => reset()}>Reset</button>
+            </div>
         </div>
     );
 }
