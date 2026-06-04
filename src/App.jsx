@@ -1,13 +1,28 @@
 import Header from "./components/Header";
 import AddTodo from "./components/AddTodo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TodoList from "./components/TodoList";
 
 function App() {
   const [task, setTask] = useState([]);
 
+  useEffect(() => {
+    const saved = localStorage.getItem('tasks');
+    if (saved) {
+      const saveTask = JSON.parse(saved);
+      setTask(saveTask);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (task.length > 0) {
+      localStorage.setItem('tasks', JSON.stringify(task));
+    }
+  }, [task]);
+
   function clearAll() {
     setTask([]);
+    localStorage.removeItem('tasks');
   }
 
   function addTask(text) {
@@ -21,14 +36,20 @@ function App() {
 
   function deleteTask(id) {
     setTask(task.filter(task => task.id !== id));
+    // localStorage.removeItem('tasks', id);
   }
 
   function toggleTask(id) {
     setTask(task.map(task =>
+      //   {
+      //   if (task.id === id) {
+      //     return { ...task, status: !task.status }
+      //   }
+      //   else return task
+      // }
       task.id === id ? { ...task, status: !task.status } : task
     ));
   }
-
 
   console.log(task);
 
