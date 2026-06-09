@@ -1,11 +1,13 @@
 import Header from "./components/Header";
 import AddTodo from "./components/AddTodo";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import TodoList from "./components/TodoList";
 import TodoItem from "./components/TodoItem";
 
 function App() {
   const [task, setTask] = useState([]);
+  const isFirstRender = useRef(true);
+
 
   useEffect(() => {
     const saved = localStorage.getItem('tasks');
@@ -16,14 +18,17 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (task.length > 0) {
-      localStorage.setItem('tasks', JSON.stringify(task));
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
     }
+    localStorage.setItem('tasks', JSON.stringify(task));
+
   }, [task]);
 
   function clearAll() {
     setTask([]);
-    localStorage.removeItem('tasks');
+    // localStorage.removeItem('tasks');
   }
 
   function addTask(text) {
@@ -37,7 +42,7 @@ function App() {
 
   function deleteTask(id) {
     setTask(task.filter(task => task.id !== id));
-    localStorage.removeItem('tasks', id);
+    // localStorage.removeItem('tasks', id);
   }
 
   function toggleTask(id) {
