@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import AddTodo from "./components/AddTodo";
 import { useEffect, useState } from "react";
 import TodoList from "./components/TodoList";
+import TodoItem from "./components/TodoItem";
 
 function App() {
   const [task, setTask] = useState([]);
@@ -36,7 +37,7 @@ function App() {
 
   function deleteTask(id) {
     setTask(task.filter(task => task.id !== id));
-    // localStorage.removeItem('tasks', id);
+    localStorage.removeItem('tasks', id);
   }
 
   function toggleTask(id) {
@@ -54,7 +55,7 @@ function App() {
   console.log(task);
 
   return (
-    <div className="bg-linear-to-b from-green-50 via-green-500 to-green-800 min-h-screen flex items-center justify-center">
+    <div className="bg-linear-to-b from-green-50 via-green-500 to-green-800 min-h-screen flex items-center justify-center text-2xl">
       <div className="bg-linear-to-b from-white/50 to-blue-500/70 p-8 max-w-[80vw] rounded-2xl w-full shadow-2xl min-h-[40vw]">
         <Header />
         <AddTodo addTask={addTask} />

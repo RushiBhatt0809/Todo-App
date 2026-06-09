@@ -7,7 +7,7 @@ function AddTodo({ addTask }) {
     return (
         <div className="flex items-center justify-center mb-6">
             <input
-                className="bg-lime-50/70 border-2 rounded-md min-w-[50vw] py-1"
+                className="bg-gray-50/90 border-2 border-gray-300 rounded-md min-w-[50vw] py-1"
                 id="Task name"
                 type="text"
                 placeholder="Add Task..."
