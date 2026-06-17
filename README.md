@@ -28,4 +28,4 @@ npm run dev
 
 ## Author
 
-**Kirito** — [HollowGabimaru09](https://github.com/HollowGabimaru09)
+**Kirito** — [RushiBhatt0809](https://github.com/RushiBhatt0809)
